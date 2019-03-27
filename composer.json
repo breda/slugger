@@ -9,7 +9,10 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {},
+    "require": {
+        "php": "^7.2",
+        "ext-mbstring": "*"
+    },
     "autoload": {
         "psr-4": { "BReda\\Slugger\\": "src/" }
     },
