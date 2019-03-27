@@ -1,0 +1,20 @@
+{
+    "name": "breda/slugger",
+    "description": "This library provides a utility class to make slugs out of strings.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Bouchaala Reda",
+            "email": "bouchaala.reda@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": { "BReda\\Slugger\\": "src/" }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8",
+        "mockery/mockery": "^1.2"
+    }
+}
