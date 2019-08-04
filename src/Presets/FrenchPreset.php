@@ -2,11 +2,12 @@
 
 use BReda\Slugger\Presets\PresetInterface;
 
-class FrenchPreset implements PresetInterface {
+class FrenchPreset implements PresetInterface
+{
 
     /**
      * Make a slug.
-     * 
+     *
      * @param  string $string
      * @return string
      */

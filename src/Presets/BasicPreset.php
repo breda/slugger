@@ -2,24 +2,25 @@
 
 use BReda\Slugger\Presets\PresetInterface;
 
-class BasicPreset implements PresetInterface {
+class BasicPreset implements PresetInterface
+{
 
     /**
      * Punctuation chars.
-     * 
+     *
      * Will be removed from the string.
      */
     const PUNCTUATION = [
         "؟", "’", "'", "(", ")", "[", "]", "{", "}", "<", ">", ":", ',', "‒", "–", "—", "―",
         "…", "!", ".", "«", "»", "-", "‐", "?", "‘", "’", "“", "”", ";", "/", "⁄", "␠", "·",
-        "&", "@", "*", "\\", "•", "^", "¤" ,"¢" ,"$", "€", "£" ,"¥" , "₩", "₪","†", "‡", 
+        "&", "@", "*", "\\", "•", "^", "¤" ,"¢" ,"$", "€", "£" ,"¥" , "₩", "₪","†", "‡",
         "°","¡", "¿","¬", '#',"№", "%", "‰", "‱", "¶", "′", "§", "~", "¨", "_", "|", "¦", "⁂",
         "☞", "∴", "‽", "※", "\"", ' ',
    ];
 
     /**
      * Make a slug.
-     * 
+     *
      * @param  string $string
      * @return string
      */
@@ -40,12 +41,12 @@ class BasicPreset implements PresetInterface {
         $firstChar    = substr($string, 0, 1);
 
         // If the last char is a $seperator, remove it.
-        if($lastChar === $seperator) {
+        if ($lastChar === $seperator) {
             $string = substr($string, 0, ($stringLength - 1));
         }
 
         // If the first char is a $seperator, remove it.
-        if($firstChar == $seperator) {
+        if ($firstChar == $seperator) {
             $string = substr($string, 1, $stringLength);
         }
 

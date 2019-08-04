@@ -1,10 +1,11 @@
 <?php namespace BReda\Slugger;
 
-interface SluggerInterface {
+interface SluggerInterface
+{
 
     /**
      * Make a slug.
-     * 
+     *
      * @param  string $string
      * @return string
      */

@@ -2,16 +2,17 @@
 
 use BReda\Slugger\Presets\PresetInterface;
 
-class ArabicPreset implements PresetInterface {
+class ArabicPreset implements PresetInterface
+{
     /**
      * Make a slug.
-     * 
+     *
      * @param  string $string
      * @return string
      */
     public function make(string $string, string $seperator): string
     {
-        // Remove arabic comma (inversed comma) 
+        // Remove arabic comma (inversed comma)
         // and the arabic underscore (the one used to make letters longer).
         $string = str_replace('،', $seperator, $string);
         $string = preg_replace('/ـ+/', '', $string);

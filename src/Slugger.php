@@ -6,18 +6,19 @@ use BReda\Slugger\Presets\FrenchPreset;
 use BReda\Slugger\Presets\PresetInterface;
 use BReda\Slugger\SluggerInterface;
 
-class Slugger implements SluggerInterface {
+class Slugger implements SluggerInterface
+{
 
     /**
      * The presets used to make the slug.
-     * 
+     *
      * @var BReda\Slugger\Presets\PresetInterface[]
      */
     protected $presets = [];
 
     /**
      * The seperator to be used.
-     * 
+     *
      * @var string
      */
     protected $seperator = '-';
@@ -25,22 +26,24 @@ class Slugger implements SluggerInterface {
     /**
      * Constructor.
      */
-    public function __construct(string $seperator, array $presets = []) {
+    public function __construct(string $seperator, array $presets = [])
+    {
         $this->seperator = $seperator;
         $this->presets = $presets;
     }
 
     /**
      * Static make.
-     * 
+     *
      * @param  string $seperator
      * @param  string $string
      * @param  array  $presets
      * @return string
      */
-    public static function staticMake(string $string, string $seperator, array $presets = []): string {
+    public static function staticMake(string $string, string $seperator, array $presets = []): string
+    {
         // If no preset is given, load them all.
-        if(empty($presets)) {
+        if (empty($presets)) {
             array_push($presets, new FrenchPreset, new ArabicPreset, new BasicPreset);
         }
 
@@ -50,7 +53,7 @@ class Slugger implements SluggerInterface {
 
     /**
      * Make a slug.
-     * 
+     *
      * @param  string $string
      * @return string
      */
@@ -58,8 +61,8 @@ class Slugger implements SluggerInterface {
     {
         $slugged = $string;
 
-        foreach($this->presets as $preset) {
-            if(is_a($preset, PresetInterface::class) === false) {
+        foreach ($this->presets as $preset) {
+            if (is_a($preset, PresetInterface::class) === false) {
                 throw new \InvalidArgumentException(sprintf("Invalid preset given [%s]", get_class($preset)));
             }
 
@@ -72,20 +75,22 @@ class Slugger implements SluggerInterface {
 
     /**
      * Add a preset.
-     * 
+     *
      * @param  PresetInterface $preset
      * @return void
      */
-    public function loadPreset(PresetInterface $preset): void {
+    public function loadPreset(PresetInterface $preset): void
+    {
         $this->presets[] = $preset;
     }
 
     /**
      * Presets getter
-     * 
+     *
      * @return array
      */
-    public function getPresets(): array {
+    public function getPresets(): array
+    {
         return $this->presets;
     }
 }
